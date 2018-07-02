@@ -1,7 +1,11 @@
 import React from "react";
 
 function LineBreak() {
-  return <div> 🌐 </div>;
+  return (
+    <span role="img" aria-label="emoji-world">
+      🌐
+    </span>
+  );
 }
 
 export default LineBreak;
