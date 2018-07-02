@@ -1,0 +1,55 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: honeydew;
+}
+
+.App-header {
+  background-color: rgb(38, 63, 202);
+  height: 160px;
+  padding: 20px;
+  color: white;
+  font: outline;
+  font-size: 1.4em;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+/* @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+.techNew-divs {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 1000px;
+  /* align-items: center; */
+}
+
+.footer {
+  display: block;
+}
+
+.Create_News_Section > * {
+  font-family: cursive;
+  font-size: 1.3em;
+}
+/* .Create_News_Section {
+  input[type="text"]: focus;
+  border: 3px solid #555;
+} */
