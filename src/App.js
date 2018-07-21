@@ -23,7 +23,7 @@ class App extends Component {
 
   componentDidMount() {
     axios.get("/api/news").then(res => {
-      //console.log(res.data);
+      console.log(res.data);
       this.setState({ techNews: res.data });
     });
   }
@@ -54,6 +54,9 @@ class App extends Component {
   render() {
     //console.log(this.state.techNews);
     let myTechNews = this.state.techNews.map((techNew, i) => {
+      let imgUrl = techNew.imgUrl
+        ? techNew.imgUrl
+        : "https://s7d1.scene7.com/is/image/PETCO/puppy-090517-dog-featured-355w-200h-d";
       return (
         <div key={i} className="techNew-divs">
           <div>
@@ -61,6 +64,7 @@ class App extends Component {
           </div>
           <SectionHeading />
           <p>{techNew.title}</p>
+          <img src={imgUrl} alt="Pic of dog" />
           <SubSection />
           <p>{techNew.abstract}</p>
           <a href={techNew.url}> Detailed Information </a>

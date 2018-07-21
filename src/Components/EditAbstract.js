@@ -5,7 +5,8 @@ class EditAbstract extends Component {
     super(props);
 
     this.state = {
-      abstract: props.abstract
+      abstract: props.abstract,
+      editing: false
     };
     this.updateAbstract = this.updateAbstract.bind(this);
   }
@@ -18,27 +19,38 @@ class EditAbstract extends Component {
     const { abstract } = this.state;
     //console.log(this.props);
 
+    if (this.state.editing) {
+      return (
+        <section className="edit_abstract">
+          <textarea
+            className="edit"
+            value={abstract}
+            placeholder="Updated Abstract"
+            onChange={e => this.updateAbstract(e.target.value)}
+          />
+          <br />
+          <br />
+          <button
+            id="button_click_abstract"
+            onClick={() => {
+              this.props.updateNews(title, abstract);
+            }}
+          >
+            Update Abstract
+          </button>
+          <button onClick={() => this.setState({ editing: false })}>
+            Cancel
+          </button>
+          <br />
+          <br />
+        </section>
+      );
+    }
+
     return (
-      <section className="edit_abstract">
-        <textarea
-          className="edit"
-          value={abstract}
-          placeholder="Updated Abstract"
-          onChange={e => this.updateAbstract(e.target.value)}
-        />
-        <br />
-        <br />
-        <button
-          id="button_click_abstract"
-          onClick={() => {
-            this.props.updateNews(title, abstract);
-          }}
-        >
-          Update Abstract
-        </button>
-        <br />
-        <br />
-      </section>
+      <button onClick={() => this.setState({ editing: true })}>
+        Edit Article
+      </button>
     );
   }
 }
